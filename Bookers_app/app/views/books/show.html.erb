@@ -5,7 +5,7 @@
   <%= render 'books/list', user: @user , book:@book1%>
   </div>
     <h1>Book detail</h1>
-    <div class="pull-left">
+
       <div class =col-xs-9>
       <table class = "table table-striped">
         <td>
@@ -30,7 +30,6 @@
     <td><%=link_to "Destroy" ,book_path(@book1), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
   <%end%>
 </table>
-</div>
 </div>
 </div>
 </div>
