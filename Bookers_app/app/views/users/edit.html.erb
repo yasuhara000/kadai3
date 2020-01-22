@@ -1,0 +1,33 @@
+<%=flash[:notice]%>
+
+<%if @user.errors.any?%>
+  <ul>
+  <% @user.errors.full_messages.each  do |message| %>
+            <li>error</li>
+            <li><%= message %></li>
+
+  <%end%>
+  </ul>
+<%end%>
+<h1>User info</h1>
+<%= form_for(@user) do |f| %>
+    <div class="form-group has-icon">
+        <span>Name</span>
+        <%= f.text_field :name%>
+        <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
+    </div>
+
+    <div class="form-group has-icon">
+   <div class="user-edit-image">
+       <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg'%>
+   </div>
+   <span class="control-span sr-only" ">ProfileImage</span>
+   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+
+</div>
+     <div class ="">
+       <span>introduction</span>
+       <%= f.text_field :introduction%>
+     </div>
+    <%= f.submit "Update User" %>
+<% end %>

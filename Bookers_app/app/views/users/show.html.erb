@@ -1,0 +1,38 @@
+<div class="container clearfix">
+  <div class="row">
+    <div class="col-xs-3 ">
+      <%= render 'books/list', user: @user , book:@book%>
+    </div>
+    <div class="col-xs-9 pull-left">
+      <h1 class="">Books</h1>
+      <div class="text-right">
+        <table>
+        <tr>
+          <th>　　　　　　　　　　　　　　　</th>
+          <td>
+            <span>　title</span>
+          </td>
+          <td>
+            <span>　　　Opinion</span>
+          </td>
+        </table>
+      </div>
+      <table class="table table-striped">
+        <%@book1.each do |f| %>
+        <div class="m-30">
+
+          <tr>
+            <p>
+              <%= link_to user_path do%>
+              <td><%= attachment_image_tag @user, :profile_image,:fill, 90, 90, class:"col-xs-2",format:'jpeg'%></td>
+              <%end%>
+              <td><%=link_to f.title , book_path(f)%></td>
+              <td><%= f.body%></td>
+            </p>
+          </tr>
+        </div>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

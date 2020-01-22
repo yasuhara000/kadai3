@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+  <div class ="col-xs-3">
+  <%= render 'books/list', user: @user , book:@book1%>
+  </div>
+    <h1>Book detail</h1>
+    <div class="pull-left">
+      <div class =col-xs-9>
+      <table class = "table table-striped">
+        <td>
+        <%=link_to user_path(@user) do %>
+          <p><%=  attachment_image_tag @user, :profile_image,fallback:"snow.jpg",format:'jpeg',size: "90x90"%>
+
+          <p><%= @user.name%></p>
+        <%end%>
+        </td>
+
+
+        <td><h3><%=link_to @book1.title ,book_path%></h3></td>
+
+
+
+
+
+        <td><h3><%=@book1.body%></h3></td>
+
+        <% if @book1.user == current_user %>
+    <td><%=link_to "Edit" , edit_book_path(@book1)%></td>
+    <td><%=link_to "Destroy" ,book_path(@book1), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  <%end%>
+</table>
+</div>
+</div>
+</div>
+</div>
